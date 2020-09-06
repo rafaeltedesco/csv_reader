@@ -41,7 +41,7 @@ def fetch_files(data):
         for file in files:
             if 'csv' in file.split()[-1]:
                 if file.lower() not in data.keys():
-                    data[file.lower()] = os.path.join(root, file)
+                    data[file.lower().split('.')[0]] = os.path.join(root, file)
                     print(f'WOW!!! There is a new file named {file}\n')
                     new_files += 1
                 else:   
