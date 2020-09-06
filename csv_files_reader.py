@@ -8,8 +8,8 @@ from tkinter import Tk, filedialog
 import time
 
     
-
 class csvReader():
+    """fetch csv files in your computer or load json with path to data files"""
 
     def __init__(self, DIR='data', FILE='files_data.json'):
         self.data = {}
@@ -74,12 +74,13 @@ class csvReader():
             print(f'Data stored with success in {os.path.join(self._DIR,self._FILE)}!')
 
     def load_data(self):
-        """return your data file as a python dictionary to use with pandas!"""
+        """return your data file (json) as a python dictionary to use with pandas!"""
         f_data = filedialog.askopenfile()
         self.data = json.load(f_data)
             
 
     def get_files(self):
+        "fetch all csv files in a directory and store into data attribute"
         self.__check_exists()
         new_files = self.__fetch_files()
         self.__write_files(new_files)
